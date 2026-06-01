@@ -1,1 +1,19 @@
-this is my first file
+apiVersion: v1
+kind: Deployment
+metadata: 
+   name: nginx
+spec:
+   replicas: 3
+   selector:
+      matchLabels:
+        app: nginx
+   template:
+      metadata: 
+        labels:
+           app: nginx
+   spec:
+      containers:
+      - name: nginx
+        image: nginx
+        ports:
+        - containerPort: 80
